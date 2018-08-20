@@ -13,9 +13,9 @@ jobs:
 
       - restore_cache:
           keys:
-          - v1-yarn-cache-{{ checksum "yarn.lock" }}
-	        # fallback to using the latest cache if no exact match is found
-          - v1-yarn-cache-
+            - v1-yarn-cache-{{ checksum "yarn.lock" }}
+            # fallback to using the latest cache if no exact match is found
+            - v1-yarn-cache-
 
       - run: yarn install
       - run:
