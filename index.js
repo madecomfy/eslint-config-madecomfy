@@ -204,7 +204,7 @@ module.exports = {
       { "avoidEscape": true, "allowTemplateLiterals": true }
     ],
     "rest-spread-spacing": ["error", "never"],
-    "semi": ["error", "never"],
+    "semi": ["error", "always"],
     "semi-spacing": ["error", { "before": false, "after": true }],
     "space-before-blocks": ["error", "always"],
     "space-before-function-paren": ["error", "never"],
