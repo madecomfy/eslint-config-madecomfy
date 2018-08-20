@@ -5,7 +5,6 @@ module.exports = {
     "prettier/react",
     "prettier/standard"
   ],
-
   "parserOptions": {
     "ecmaVersion": 8,
     "ecmaFeatures": {
