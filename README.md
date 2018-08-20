@@ -1,0 +1,1 @@
+ESLint configs for MadeComfy
