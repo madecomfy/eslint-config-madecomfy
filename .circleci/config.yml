@@ -36,6 +36,8 @@ jobs:
     steps:
       - attach_workspace:
           at: ~/repo
+      - run: git config user.name $CIRCLE_USERNAME
+      - run: git config user.email "eng@madecomfy.com.au"
       - run: npm version patch -m "Bumped up to version %s"
       - run: git push && git push --tags
 
