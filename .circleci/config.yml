@@ -30,6 +30,15 @@ jobs:
       - persist_to_workspace:
           root: ~/repo
           paths: .
+
+  tag:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: ~/repo
+      - run: npm version patch -m "Bumped up to version %s"
+      - run: git push && git push --tags
+
   deploy:
     <<: *defaults
     steps:
@@ -38,6 +47,12 @@ jobs:
       - run:
           name: Authenticate with registry
           command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/repo/.npmrc
+      - run:
+          name: Bump up version
+          command: npm --no-git-tag-version version ${CIRCLE_TAG:1}
+      - run:
+          name: Update master
+          command:
       - run:
           name: Publish package
           command: npm publish
@@ -49,12 +64,20 @@ workflows:
       - test:
           filters:
             tags:
-              only: /^v.*/
+              only: /^v[0-9].*/
+      - tag:
+          requires:
+            - test
+          filters:
+            tags:
+              ignore: /.*/
+            branches:
+              only: master
       - deploy:
           requires:
             - test
           filters:
             tags:
-              only: /^v.*/
+              only: /^v[0-9].*/
             branches:
               ignore: /.*/
