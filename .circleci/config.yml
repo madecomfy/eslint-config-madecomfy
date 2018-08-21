@@ -36,8 +36,7 @@ jobs:
     steps:
       - attach_workspace:
           at: ~/repo
-      - run: ssh-keyscan $SSH_SERVER >> ~/.ssh/known_hosts
-      - run: echo $SSH_SERVER
+      - run: ssh-keyscan 192.30.255.113 > ~/.ssh/known_hosts
       - run: git config user.name $CIRCLE_USERNAME
       - run: git config user.email "eng@madecomfy.com.au"
       - run: npm version patch -m "Bumped up to version %s"
