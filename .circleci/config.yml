@@ -31,17 +31,6 @@ jobs:
           root: ~/repo
           paths: .
 
-  tag:
-    <<: *defaults
-    steps:
-      - attach_workspace:
-          at: ~/repo
-      - run: ssh-keyscan 192.30.255.113 > ~/.ssh/known_hosts
-      - run: git config user.name $CIRCLE_USERNAME
-      - run: git config user.email "eng@madecomfy.com.au"
-      - run: npm version patch -m "Bumped up to version %s"
-      - run: git push origin master && git push --tags
-
   deploy:
     <<: *defaults
     steps:
@@ -54,9 +43,6 @@ jobs:
           name: Bump up version
           command: npm --no-git-tag-version version ${CIRCLE_TAG:1}
       - run:
-          name: Update master
-          command:
-      - run:
           name: Publish package
           command: npm publish
 
@@ -68,14 +54,6 @@ workflows:
           filters:
             tags:
               only: /^v[0-9].*/
-      - tag:
-          requires:
-            - test
-          filters:
-            tags:
-              ignore: /.*/
-            branches:
-              only: master
       - deploy:
           requires:
             - test
