@@ -47,6 +47,7 @@ module.exports = {
 
   "rules": {
     "accessor-pairs": "error",
+    "arrow-parens": ["error", "always"],
     "arrow-spacing": ["error", { "before": true, "after": true }],
     "block-spacing": ["error", "always"],
     "brace-style": ["error", "1tbs", { "allowSingleLine": true }],
