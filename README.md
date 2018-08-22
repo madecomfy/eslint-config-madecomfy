@@ -6,7 +6,7 @@ In the interest of [DRY](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself) 
 
 ## Installation
 
-Assumes you have a working node project (ie, package.json exists)
+Assumes you have a working node project (ie, `package.json` exists) with code in `./src/`
 
 #### install module:
 
@@ -26,7 +26,7 @@ Assumes you have a working node project (ie, package.json exists)
 }
 ```
 
-#### add lint execution script to `package.json` (assuming your code is in `./src/`:
+#### add lint execution script to `package.json`:
 
 ```json
   ...
@@ -37,6 +37,34 @@ Assumes you have a working node project (ie, package.json exists)
   ...
 ```
 
+
 ## Linting
 
 	yarn lint
+
+
+## Lint staged files before committing
+
+The following steps will prevent badly formatted code from being pushed to remote.
+
+#### install modules:
+
+	yarn add husky lint-staged
+	
+#### add precommit hook to `package.json`:
+
+```json
+  ...
+  "scripts": {
+    "build": "webpack",
+    "lint": "eslint src",
+    "precommit": "lint-staged"
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx}": [
+      "eslint --fix",
+      "git add"
+    ]
+  }
+  ...
+```
