@@ -8,15 +8,15 @@ In the interest of [DRY](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself) 
 
 Assumes you have a working node project (ie, package.json exists)
 
-- install module:
+### install module:
 
 	yarn add eslint-config-madecomfy
 
-- create eslintrc:
+### create eslintrc:
 
 	touch .eslintrc
 
-- populate `.eslintrc` with:
+### populate `.eslintrc` with:
 
 ```json
 {
@@ -26,7 +26,7 @@ Assumes you have a working node project (ie, package.json exists)
 }
 ```
 
-- add lint execution script to `package.json`:
+### add lint execution script to `package.json`:
 
 ```json
   ...
