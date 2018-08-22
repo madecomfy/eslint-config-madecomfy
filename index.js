@@ -26,7 +26,8 @@ module.exports = {
   "settings": {
     "react": {
       "createClass": "createReactClass",
-      "pragma": "React"
+      "pragma": "React",
+      "version": "16.4.2"
     }
   },
 
@@ -54,11 +55,11 @@ module.exports = {
     "comma-dangle": [
       "error",
       {
-        "arrays": "never",
-        "objects": "never",
-        "imports": "never",
-        "exports": "never",
-        "functions": "never"
+        "arrays": "always-multiline",
+        "objects": "always-multiline",
+        "imports": "always-multiline",
+        "exports": "always-multiline",
+        "functions": "always-multiline"
       }
     ],
     "comma-spacing": ["error", { "before": false, "after": true }],
