@@ -10,7 +10,7 @@ Assumes you have a working node project (ie, `package.json` exists) with code in
 
 #### install module:
 
-	yarn add eslint-config-madecomfy
+	yarn add eslint-config-madecomfy --dev
 
 #### create eslintrc:
 
@@ -49,7 +49,7 @@ The following steps will prevent badly formatted code from being pushed to remot
 
 #### install modules:
 
-	yarn add husky lint-staged
+	yarn add husky lint-staged --dev
 	
 #### add precommit hook to `package.json`:
 
