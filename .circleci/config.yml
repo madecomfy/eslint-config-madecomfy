@@ -43,7 +43,7 @@ jobs:
             echo "//npm.pkg.github.com/:_authToken=$GH_PACKAGES_TOKEN" >> ~/repo/.npmrc
       - run:
           name: Bump up version
-          command: npm --no-git-tag-version version ${CIRCLE_TAG:1}
+          command: npm --no-git-tag-version --allow-same-version version ${CIRCLE_TAG:1}
       - run:
           name: Publish package
           command: npm publish
