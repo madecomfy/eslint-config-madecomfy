@@ -10,7 +10,7 @@ Assumes you have a working node project (ie, `package.json` exists) with code in
 
 #### install module:
 
-	yarn add eslint-config-madecomfy --dev
+	yarn add @madecomfy/eslint-config --dev
 
 #### create eslintrc:
 
@@ -21,7 +21,7 @@ Assumes you have a working node project (ie, `package.json` exists) with code in
 ```json
 {
     "extends": [
-      "madecomfy"
+      "@madecomfy/eslint-config"
     ]
 }
 ```
